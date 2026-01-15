@@ -195,7 +195,7 @@ export default function SecurePlayer() {
         {/* Status / Title placeholder */}
         <div className="text-center space-y-1">
              <div className="text-cyan-400 text-xs font-mono tracking-widest uppercase">Encrypted Audio Stream</div>
-             <div className="text-white font-bold text-lg tracking-tight">Secure Playback</div>
+             <div className="text-white font-bold text-lg tracking-tight">Cute Divya</div>
         </div>
 
         {/* Progress Bar */}
