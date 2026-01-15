@@ -83,7 +83,7 @@ export default function SecurePlayer() {
     decryptAudio();
   }, []);
 
-  const updateProgress = () => {
+    const updateProgress = () => {
     if (!audioContextRef.current || !isPlaying) return;
     
     // Calculate current time based on how long we've been playing + where we started
@@ -123,12 +123,16 @@ export default function SecurePlayer() {
     
     // Start from saved position
     const offset = pauseTimeRef.current;
-    source.start(0, offset);
+    
+    // Safety check: ensure offset is within bounds
+    const safeOffset = Math.min(Math.max(0, offset), audioBufferRef.current.duration);
+    
+    source.start(0, safeOffset);
     
     // We record the time we started playing in AudioContext time
     // But we need to account for the offset.
     // effectiveStartTime = contextTime - offset
-    startTimeRef.current = audioContextRef.current.currentTime - offset;
+    startTimeRef.current = audioContextRef.current.currentTime - safeOffset;
     
     sourceNodeRef.current = source;
     
@@ -137,7 +141,7 @@ export default function SecurePlayer() {
     
     // Start animation loop
     if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
-    animationFrameRef.current = requestAnimationFrame(updateProgress);
+    updateProgress(); // Start progress immediately
   };
 
   const pause = () => {

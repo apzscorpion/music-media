@@ -1,24 +1,45 @@
 import React from 'react';
 
 const LYRICS = `
-(Instrumental Intro)
+ചെറിയ ചിരിയിൽ
+എത്ര warmth ഒളിച്ചു നീ
+Late night callsിൽ
+എന്നെ താങ്ങി നിന്നത് നീ
 
-This is a secure audio stream.
-The file is encrypted at rest.
-Decrypted only in memory.
-No direct download link available.
+Random stories
+നീ കേൾക്കും eyes full bright
+Drama കൂടുമ്പോൾ
+നീ calm ആക്കുന്ന light
 
-(Verse 1)
-Web Crypto API handles the keys.
-AudioContext plays the sound.
-Source buffer is raw PCM.
-Hard to grab, safe and sound.
+ദിവ്യാ
+എന്റെ ഹരിതക്കൊടി
+Green flag പോലെ നീ sideil നിൽക്കും ready
+എങ്ങോട്ട് വീണാലും
+നീ catch cheyyum steady
+നിന്നില്ലാതെ ഞാൻ ആരാ
+Reshma's heartinte melody
 
-(Chorus)
-Secure Player, playing tunes.
-Hidden from the curious eyes.
-Enjoy the music, enjoy the tech.
-Underneath the digital skies.
+"you got this
+Chellam"
+Text വരും just in time
+Fail ആണെങ്കിലും
+നീ കാണുന്ന shine
+
+Small wins ആണെങ്കിലും
+നീ celebrate cheyyum loud
+Crowd ഇല്ലാത്തപ്പോഴും
+നീ ആയിരുന്നു crowd
+
+Bad hair day
+Poyi
+But നീ വന്നപ്പോൾ fine
+Paniyayi mood
+നീ turn cheythu sunshine
+
+Photo okke blur
+But memories crystal clear
+Lifeinte chaosil
+നിന്റെ voice മാത്രം dear
 `;
 
 export default function Lyrics() {
