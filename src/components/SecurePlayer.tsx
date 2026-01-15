@@ -5,8 +5,12 @@ import { Play, Pause, Loader2, Volume2, VolumeX, SkipBack, SkipForward } from 'l
 import keys from '@/config/keys.json';
 import { tracks } from '@/data/tracks';
 
-export default function SecurePlayer() {
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+interface SecurePlayerProps {
+    currentTrackIndex: number;
+    onTrackChange: (index: number) => void;
+}
+
+export default function SecurePlayer({ currentTrackIndex, onTrackChange }: SecurePlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -197,11 +201,11 @@ export default function SecurePlayer() {
   };
 
   const handlePrev = () => {
-      setCurrentTrackIndex((prev) => (prev - 1 + tracks.length) % tracks.length);
+      onTrackChange((currentTrackIndex - 1 + tracks.length) % tracks.length);
   };
 
   const handleNext = () => {
-      setCurrentTrackIndex((prev) => (prev + 1) % tracks.length);
+      onTrackChange((currentTrackIndex + 1) % tracks.length);
   };
 
   // Volume
@@ -230,7 +234,7 @@ export default function SecurePlayer() {
                 {tracks.map((track, idx) => (
                     <li key={track.id}>
                         <button 
-                            onClick={() => setCurrentTrackIndex(idx)}
+                            onClick={() => onTrackChange(idx)}
                             className={`w-full text-left p-3 rounded-lg text-sm transition-all flex items-center gap-3 ${
                                 idx === currentTrackIndex 
                                 ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-[0_0_10px_rgba(6,182,212,0.1)]' 
